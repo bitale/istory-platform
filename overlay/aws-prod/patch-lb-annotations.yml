@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: istory-lb
+  annotations: # AWS EKS의 규칙을 지켜주어야함 밑의 3개 태그라벨
+  # 태그조회 kubectl get ns, kubectl get all -n kube-system
+    service.beta.kubernetes.io/aws-load-balancer-type: external
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+    istory.io/infra: aws
+    istory.io/env: prod
+    istory.io/tier: app-lb

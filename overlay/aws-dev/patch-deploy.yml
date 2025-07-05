@@ -1,0 +1,11 @@
+apiVersion: apps/v1
+kind: Deployment
+# 관리용 주석
+metadata:
+  name: istory-app-deploy
+  annotations:
+    istory.io/env: dev
+    istory.io/tier: backend-app
+    istory.io/infra: aws
+spec:
+  replicas: 1
